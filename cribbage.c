@@ -16,6 +16,11 @@
 #define NO_INPUT		1
 #define TOO_LONG		2
 
+struct player{
+	int score;
+	char *name[MAX_NAME_LEN];
+};
+
 static int getLine (char *prmpt, char *buff, size_t sz);
 void getPlayerNames(char *p1name, char *p2name);
 void cutForDeal(struct card *p1cut, struct card *p2cut, 
@@ -29,6 +34,7 @@ int main(void){
 	printf("Welcome to Fore's text-based cribbage game.\n");
 	shuffle(&myDeck);
 	char p1name[MAX_NAME_LEN], p2name[MAX_NAME_LEN];
+	// struct player p1, p2;
 	getPlayerNames(p1name, p2name);
 	printf("Now it's time to cut for the deal.  Low card wins.\n");
 	struct card p1cut, p2cut;
