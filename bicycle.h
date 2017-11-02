@@ -2,6 +2,7 @@
 //TODO: typdef?
 struct card {
 	int name, suit, val;
+	char shortName[3];
 	char fullName[10];
 	char fullSuit[10];
 };
@@ -14,3 +15,4 @@ int nameToVal(int name);
 void printdeck(struct deck *d);
 void shuffle(struct deck *d);
 int randomcard();
+int aresamecard(struct card *c1, struct card *c2);

@@ -1,6 +1,6 @@
 /*
  * Author: Andrew Geist
- * Last Updated: Wed 01 Nov 2017 08:02:47 AM EDT
+ * Last Update: Wed 01 Nov 2017 03:30:20 PM EDT
  */
 #include <stdio.h>
 #include <stdlib.h>
@@ -71,9 +71,11 @@ struct card newcard(int x, int y){
 		default:
 			strcpy(temp.fullSuit, "error");
 	}
+	temp.shortName[0] = x;
+	temp.shortName[1] = y;	
+	temp.shortName[2] = '\0';
 	return temp;
 }
-
 
 struct deck newdeck(){
 	struct deck temp;
@@ -212,4 +214,9 @@ int randomcard(){
 
 		return r % CARDS_IN_DECK;
 	}
+}
+
+int aresamecard(struct card *c1, struct card *c2){
+	return c1->name == c2->name && c1->suit == c2->suit ?
+		1 : 0;
 }
